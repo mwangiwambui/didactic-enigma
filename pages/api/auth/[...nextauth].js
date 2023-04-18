@@ -1,5 +1,5 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/spotify"
+import SpotifyProvider from "next-auth/providers/spotify"
 import fetch from "node-fetch"
 
 async function refreshAccessToken(token){
@@ -47,7 +47,7 @@ const LOGIN_URL = "https://accounts.spotify.com/authorize?" + query.toString()
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
-    GithubProvider({
+    SpotifyProvider({
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_SECRET,
       authorization: LOGIN_URL
